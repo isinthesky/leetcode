@@ -23,18 +23,16 @@ var isSameTree = function(p, q) {
       if (node.left) {
         pArray.push("L");
         pTree(node.left, array);
-      }else {
+      } else {
       pArray.push("Err");
     }
 
       if (node.right) {
         pArray.push("R");
         pTree(node.right, array);
-      }else {
-      pArray.push("Err");
-    }
-    } else {
-      pArray.push("Err");
+      } else {
+        pArray.push("Err");
+      }
     }
   }
 
@@ -45,18 +43,16 @@ var isSameTree = function(p, q) {
       if (node.left) {
         qArray.push("L");
         qTree(node.left, array);
-      }else {
-      qArray.push("Err");
-    }
+      } else {
+        qArray.push("Err");
+      }
 
       if (node.right) {
         qArray.push("R");
         qTree(node.right, array);
-      }else {
-      qArray.push("Err");
-    }
-    } else {
-      qArray.push("Err");
+      } else {
+        qArray.push("Err");
+      }
     }
   }
 
