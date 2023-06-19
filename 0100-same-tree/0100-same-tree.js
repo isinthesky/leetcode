@@ -24,14 +24,14 @@ var isSameTree = function(p, q) {
         pArray.push("L");
         pTree(node.left, array);
       } else {
-      pArray.push("Err");
-    }
+        pArray.push("E");
+      }
 
       if (node.right) {
         pArray.push("R");
         pTree(node.right, array);
       } else {
-        pArray.push("Err");
+        pArray.push("E");
       }
     }
   }
@@ -44,23 +44,20 @@ var isSameTree = function(p, q) {
         qArray.push("L");
         qTree(node.left, array);
       } else {
-        qArray.push("Err");
+        qArray.push("E");
       }
 
       if (node.right) {
         qArray.push("R");
         qTree(node.right, array);
       } else {
-        qArray.push("Err");
+        qArray.push("E");
       }
     }
   }
 
   pTree(p,pArray);
   qTree(q,qArray);
-
-console.log(pArray, qArray);
-
 
   if (pArray.length !== qArray.length) return false;
 
