@@ -63,8 +63,6 @@ var isSymmetric = function(root) {
     RTree(root.right, RArray);
   }
 
-  console.log(LArray, RArray);
-
   if (LArray.length !== RArray.length) return false;
 
   for (let i = 0; i < LArray.length; i += 1) {
