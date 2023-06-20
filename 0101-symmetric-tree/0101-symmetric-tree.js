@@ -12,64 +12,49 @@
  */
 var isSymmetric = function(root) {
 
-  const LArray = [];
-  const RArray = [];
-    
-  const LTree = (node, array) => {
-    if (node) {
-      if (node.val) {
-        array.push(node.val);
+  if (!root) return false;
+
+  const isSame = (LNode, RNode) => {
+    console.log(LNode, RNode,'##');
+
+    let result = true;
+
+    if (LNode && RNode) {
+      if (LNode.val === RNode.val) {
+
+        console.log(LNode.left,LNode.right ,'##', RNode.left, RNode.right);
+
+        if (!LNode.left && !RNode.right && !LNode.right && !RNode.left) return true;
+
+        if (LNode.left && RNode.right) {
+          if (!isSame(LNode.left, RNode.right))
+            return false;
+        } 
+        
+        if (LNode.right && RNode.left) {
+          if (!isSame(LNode.right, RNode.left))
+            return false;
+        }
+
+        if ((!LNode.left && RNode.right) || (LNode.left && !RNode.right)) {
+          return false;
+        }
+        if ((LNode.right && !RNode.left) || (!LNode.right && RNode.left)) {
+          return false;
+        }
+
+      } else {  
+        return false;
       }
-
-      if (node.left) {
-        LTree(node.left, array);
-      } else {
-        array.push(1);
-      }
-
-      if (node.right) {
-        LTree(node.right, array);
-      } else {
-        array.push(2)
-      }
-    }
-  }
-
-  const RTree = (node, array) => {
-    if (node) {
-      if (node.val) {
-        array.push(node.val);
-      }
-
-      if (node.right) {
-        RTree(node.right, array);
-      } else {
-        array.push(1);
-      }
-
-      if (node.left) {
-        RTree(node.left, array);
-      } else {
-        array.push(2);
-      }
-    }
-  }
-
-  if (root.left) {
-    LTree(root.left, LArray);
-  }
-
-  if (root.right) {
-    RTree(root.right, RArray);
-  }
-
-  if (LArray.length !== RArray.length) return false;
-
-  for (let i = 0; i < LArray.length; i += 1) {
-    if (LArray[i] !== RArray[i]) {
+    } else
       return false;
-    } 
+  
+    return result;
   }
 
-  return true;
+  if (!root.left && !root.right) return true;
+
+  const result = isSame(root.left, root.right);
+
+  return result;
 };
