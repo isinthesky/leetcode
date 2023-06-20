@@ -17,8 +17,6 @@ var isSymmetric = function(root) {
   const isSame = (LNode, RNode) => {
     if (LNode && RNode) {
       if (LNode.val === RNode.val) {
-        if (!LNode.left && !RNode.right && !LNode.right && !RNode.left) return true;
-
         if (LNode.left && RNode.right) {
           if (!isSame(LNode.left, RNode.right)) return false;
         } 
