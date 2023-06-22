@@ -11,6 +11,7 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
+
   if (!root) return true;
   
   const Lcount = {depth: 0, max: 0};
@@ -44,7 +45,9 @@ var isBalanced = function(root) {
     getDepth(root.right, Rcount);
   }
 
-  if (Math.abs(Lcount.max - Rcount.max) < 2) {
+  const gap = Math.abs(Lcount.max-Rcount.max);
+
+  if (gap < 2) {
     if (root.left) {
       if (!isBalanced(root.left)) {
         return false;
