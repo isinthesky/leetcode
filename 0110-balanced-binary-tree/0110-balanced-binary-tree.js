@@ -11,6 +11,7 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
+  if (!root) return true;
   
   const Lcount = {depth: 0, max: 0};
   const Rcount = {depth: 0, max: 0};
@@ -35,8 +36,6 @@ var isBalanced = function(root) {
     }
   }
 
-  if (!root) return true;
-
   if (root.left) {
     getDepth(root.left, Lcount);
   }
@@ -45,17 +44,18 @@ var isBalanced = function(root) {
     getDepth(root.right, Rcount);
   }
 
-  const gap = Math.abs(Lcount.max-Rcount.max);
-
-  if (gap < 2) {
-    if (root.left)
-      if (!isBalanced(root.left)) 
+  if (Math.abs(Lcount.max - Rcount.max) < 2) {
+    if (root.left) {
+      if (!isBalanced(root.left)) {
         return false;
+      }
+    }
 
-    if (root.right)
-      if (!isBalanced(root.right)) 
+    if (root.right) {
+      if (!isBalanced(root.right)) {
         return false;
-
+      } 
+    }
   } else {
     return false;
   }
