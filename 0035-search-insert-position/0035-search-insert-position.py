@@ -14,10 +14,3 @@ class Solution:
                 e_pos = half_pos - 1
 
         return s_pos
-
-        
-
-
-                
-
-        
