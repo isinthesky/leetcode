@@ -1,7 +1,9 @@
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        start = 0
-        end = 0
+        start = len(s)
+        end = len(s)
+        lenn = False;
+        out= [];
         
         def whiteSpace(char) -> bool:
             if char == " ":
@@ -9,15 +11,23 @@ class Solution:
             else:
                 return False
 
-        if not whiteSpace(s[0]):
-            end += 1
-
-        for n in range(1,len(s)):
-            if whiteSpace(s[n-1]) and not whiteSpace(s[n]):
-                start = n
+        for n in reversed(range(len(s))):
+            if lenn == False and not whiteSpace(s[n]):
                 end = n
-
-            if not whiteSpace(s[n]):
-                end += 1
+                start = n
+                lenn = True
+                print("ww", n, s[n],"pos",  end)
             
-        return end - start
+            if lenn == True and whiteSpace(s[n]):
+                print("ss", n, s[n])
+                start = n+1
+                break
+            
+            if lenn == True:
+                start = n
+
+            # if lenn == False and whiteSpace(s[n]):
+            #     print("ee", n, s[n])
+            #     end = n
+
+        return (end - start) + 1
