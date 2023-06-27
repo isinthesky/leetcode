@@ -11,12 +11,12 @@ class Solution:
                 return False
 
         for n in reversed(range(len(s))):
-            if lenn == False and not whiteSpace(s[n]):
+            if lenn == False and s[n] != " ":
                 end = n
                 start = n
                 lenn = True
             
-            if lenn == True and whiteSpace(s[n]):
+            if lenn == True and s[n] == " ":
                 start = n+1
                 break
             
