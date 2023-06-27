@@ -3,7 +3,6 @@ class Solution:
         start = len(s)
         end = len(s)
         lenn = False;
-        out= [];
         
         def whiteSpace(char) -> bool:
             if char == " ":
@@ -16,18 +15,12 @@ class Solution:
                 end = n
                 start = n
                 lenn = True
-                print("ww", n, s[n],"pos",  end)
             
             if lenn == True and whiteSpace(s[n]):
-                print("ss", n, s[n])
                 start = n+1
                 break
             
             if lenn == True:
                 start = n
-
-            # if lenn == False and whiteSpace(s[n]):
-            #     print("ee", n, s[n])
-            #     end = n
 
         return (end - start) + 1
