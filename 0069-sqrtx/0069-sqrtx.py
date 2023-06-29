@@ -2,46 +2,21 @@ class Solution:
     def mySqrt(self, x: int) -> int:
         if x == 0:
             return 0
+
+        left,right=1,x
         
-        if x < 4:
-            return 1
+        while left<=right:
+            mid=(left+right)//2
 
-        half = x
+            print("mm",mid,left,right)
 
-        while half * half > x :
-            if half // 2 < 2:
-                break
-            half = half // 2
-            # print(half, half * half)
-        
-        l = half
-        h = half*half
-
-        print(l,h,x)
-
-        while l <= h :
-            half = l + ((h - l) // 2)
-
-
-            if half == x // half:
-                return half
-
-            elif half > x // half :
-                h = half -1
-
+            if mid*mid==x:
+                return mid
+            if mid*mid>x:
+                right=mid-1
             else:
-                l = half + 1
-            
-
-
-            print("22",l,h,half)
-        
-        
-        return h
-
-
-
-
-
+                print("el",mid*mid)
+                left=mid+1
+        return right
 
 
