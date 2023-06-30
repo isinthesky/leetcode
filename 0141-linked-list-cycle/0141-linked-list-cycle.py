@@ -6,42 +6,19 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-
-        if not head:
+        if not head :
             return False
+        
+        slow = head
+        fast = head.next
 
-        node = head
-        mem = None
+        while slow != fast :
+            if not fast or not fast.next:
+                return False
 
-        arr = []
-
-        pos = 0 
-        def compArr(cnode: Optional[ListNode]) -> bool:
-            temp = set()
-            while cnode:
-                if cnode in temp:
-                    return True
-                temp.add(cnode)
-                cnode = cnode.next
-
-            return False
-
-        while node :
-            if node.val in arr:
-                pos = arr.index(node.val)
-
-                if compArr(node) == True:
-                    return True
-                else:
-                    return False
-
-            else:
-                arr.append(node.val)
-                node = node.next
-
-    
-
-        pos = -1
-        return False
+            slow = slow.next
+            fast = fast.next.next
+        
+        return True
         
         
