@@ -15,11 +15,8 @@ class Solution:
             if node.val != None:
                 arr.append(node.val)
             
-            if node.left :
-                treeSearch(node.left, arr)
-
-            if node.right :
-                treeSearch(node.right, arr)
+            treeSearch(node.left, arr)
+            treeSearch(node.right, arr)
 
         treeSearch(root, nodelist)
 
