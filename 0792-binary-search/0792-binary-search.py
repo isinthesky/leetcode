@@ -14,10 +14,7 @@ class Solution:
                 return half
 
             if r - l < 2:
-                if target in nums[l:r+1]:
-                    return nums[l:r+1].index(target)
-                else:
-                    break
+                break
 
             if target < nums[half]:
                 r = half
