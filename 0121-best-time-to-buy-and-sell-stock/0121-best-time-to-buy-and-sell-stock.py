@@ -1,23 +1,20 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        minValue = prices[0]
-        pos = 0
-        diff = 0
+        l = 0
+        r = 1
+        big = 0
 
-        for n in range(1, len(prices)):
-            minValue = min(minValue, prices[n])
+        while r < len(prices) :
+            curr = prices[r] - prices[l]
 
-            if prices[n-1] > prices[n]:
-                pos += 1
-            else:
-                d = prices[n] - minValue
-                diff = max(d,diff)
+            if prices[l] < prices[r]:
+                big = max(big, curr)
+            else :
+                l = r
+            
+            r += 1
 
-        if pos == len(prices):
-            return 0
-        else:
-            return diff
+        print(big)
 
-        
 
-             
+        return big
