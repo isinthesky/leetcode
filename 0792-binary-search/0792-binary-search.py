@@ -1,8 +1,5 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-
-        print(nums, target)
-
         l = 0
         r = len(nums)
 
@@ -14,7 +11,7 @@ class Solution:
                 return half
 
             if r - l < 2:
-                break
+                return -1
 
             if target < nums[half]:
                 r = half
