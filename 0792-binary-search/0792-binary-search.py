@@ -2,22 +2,30 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
 
         print(nums, target)
-        
-        def slideFunc(arr, num, pos)-> int:
 
-            half = len(arr) // 2
-            print(half, arr, pos)
+        l = 0
+        r = len(nums)
 
-            if arr[half] == target:
-                return pos + len(arr) // 2
+        while l < r:
 
-            if half < 1:
-                return -1
-            
-            if arr[half] > target:
-                return slideFunc(arr[:half], num, pos)
+            half = (l + r) // 2
+
+            if target == nums[half]:
+                return half
+
+            if r - l < 2:
+                if target in nums[l:r+1]:
+                    return nums[l:r+1].index(target)
+                else:
+                    break
+
+            if target < nums[half]:
+                r = half
             else:
-                return slideFunc(arr[half:], num, pos + half)
+                l = half
 
-        print(slideFunc(nums, target, 0))
-        return slideFunc(nums, target, 0)
+        return -1
+            
+
+
+
