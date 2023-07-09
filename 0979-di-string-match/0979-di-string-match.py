@@ -1,21 +1,19 @@
 class Solution:
     def diStringMatch(self, s: str) -> List[int]:
-        out = []
-        for n in range(0, len(s) + 1):
-            out.append(n)
-
         l = 0
         r = len(s)
 
-        result = []
-        for ch in s:
-            if ch == "I":
-                result.append(out[l])
+        result = [0] * (len(s)+1)
+        count = 0
+        for ch in range(0, len(s)):
+            if s[ch] == "I":
+                result[count] = l
                 l += 1
             else:
-                result.append(out[r])
+                result[count] = r
                 r -= 1
-
-        result.append(out[l])
+            count += 1
+        
+        result[count] = l
 
         return result
