@@ -3,11 +3,10 @@ class Solution:
         dic = {}
         for n, v in enumerate(nums):
             if v in dic:
-                print(abs(dic.get(v) - n))
-
                 if abs(dic.get(v) - n) <= k:
                     return True 
                 dic[v] = n
             else:
                 dic[v] = n
         
+        return False
