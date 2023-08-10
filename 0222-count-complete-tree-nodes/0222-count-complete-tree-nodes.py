@@ -7,21 +7,17 @@
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
         
-        count = [0]
-        
-        def depthNode(node:Optional[TreeNode], arr:list):
+        def depthNode(node:Optional[TreeNode], count:int) -> int:
             if not node:
-                return
+                return count
             
             if node.val != None:
-                arr[0] += 1
+                count = count + 1
                 
-            depthNode(node.left, arr)
-            depthNode(node.right, arr)
+            count = depthNode(node.left, count)
+            count = depthNode(node.right, count)
             
-        depthNode(root, count)
-        
-        return count[0]
+            return count
             
-            
+        return depthNode(root, 0)
         
