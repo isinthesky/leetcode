@@ -3,11 +3,8 @@ class Solution:
         length = len(nums)
 
         arr = []
-
         i = 0
         rev = length
-
-        print(nums)
 
         while i < length:
             if nums[i][i] % 2 == 1 or nums[i][i] <= 3:
@@ -15,21 +12,13 @@ class Solution:
 
             rev -= 1
 
-            print("rev",rev)
-
             if nums[i][rev] % 2 == 1 or nums[i][rev] <= 3:
                 arr.append(nums[i][rev])
 
             i += 1
 
-        print(arr)
-
         myset = set(arr)
-
         mylist = list(myset)
-
-        print(mylist)
-
         mylist.sort(reverse=True)
 
         def is_prime(n):
@@ -51,4 +40,3 @@ class Solution:
                 return num
 
         return 0
-
