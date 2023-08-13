@@ -9,9 +9,11 @@ class Solution:
         
         def depthNode(node: Optional[TreeNode], rem:str, arr:list):
             preStr = ""
-
             if rem != "":
                 preStr = rem+"->"
+
+            if not node.left and not node.right:
+                arr.append(preStr + str(node.val))
 
             if node.left:
                 depthNode(node.left, preStr + str(node.val), arr)
@@ -19,11 +21,7 @@ class Solution:
             if node.right:
                 depthNode(node.right, preStr + str(node.val), arr)
 
-            if not node.left and not node.right:
-                arr.append(preStr + str(node.val))
-
         treeWay = []
-
         depthNode(root, "", treeWay)
 
         return treeWay
