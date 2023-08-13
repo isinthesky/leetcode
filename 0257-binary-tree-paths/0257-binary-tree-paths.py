@@ -8,9 +8,6 @@ class Solution:
     def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
         
         def depthNode(node: Optional[TreeNode], rem:str, arr:list):
-            if not node:
-                return
-
             preStr = ""
 
             if rem != "":
