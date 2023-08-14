@@ -1,6 +1,5 @@
 class Solution:
     def addDigits(self, num: int) -> int:
-
         def digitFunc(number: int)-> int:
             digit = 0
             for n in str(number):
@@ -11,4 +10,3 @@ class Solution:
             num = digitFunc(num)
 
         return num
-        
