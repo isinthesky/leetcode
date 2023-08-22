@@ -1,6 +1,5 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-
         dictChar = {}
         arrChar = []
 
@@ -11,22 +10,12 @@ class Solution:
                 dictChar[ch] = 1
                 arrChar.append([pos, ch])
 
-        keys = dictChar.keys()
-
-
         result = -1
-        print(dictChar, arrChar)
 
         for key in dictChar.keys():
             if dictChar[key] == 1:
                 for p, c in arrChar:
-                    print("arrchar", c, p)
                     if c == key:
                         return p
-
-
-        # print(dictChar, arrChar)
-
-
 
         return result
