@@ -5,11 +5,11 @@ class Solution:
         
         for ch in s[1:]:
             repeat_length = len(repeat)
-            
-            if repeat[0] == ch and (s_length % repeat_length) == 0:
-                if repeat_length > s_length / 2:
-                    return False
+             
+            if repeat_length > s_length / 2:
+                return False
 
+            if repeat[0] == ch and (s_length % repeat_length) == 0:
                 merge = set()
                 for i in range(0, s_length, repeat_length):
                     merge.add(s[i:i+repeat_length])
