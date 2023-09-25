@@ -9,13 +9,14 @@ class Solution:
         result = TreeNode(val=-1)
 
         def depthNode(node, val, res):
-            if node:
-                if node.val == val:
-                    res.val = val
-                    res.left = node.left
-                    res.right = node.right
-                else:
+            if node.val == val:
+                res.val = val
+                res.left = node.left
+                res.right = node.right
+            else:
+                if node.left:
                     depthNode(node.left, val, res)
+                if node.right:
                     depthNode(node.right, val, res)
 
         depthNode(root, val, result)
