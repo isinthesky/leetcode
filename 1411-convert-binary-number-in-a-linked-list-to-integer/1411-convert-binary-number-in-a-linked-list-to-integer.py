@@ -10,12 +10,14 @@ class Solution:
 
         def nextNode(node, res, bin):
             if node.next:
-                nextNode(node.next, res, bin)
-
-            if node.val == 1:
-                res[0] += bin[0]
-                
-            bin[0] *= 2
+                ret = nextNode(node.next, res, bin)
+                if node.val == 1:
+                   res[0] += ret
+                return ret * 2
+            else:
+                if node.val == 1:
+                    res[0] += bin[0]
+                return 2
 
         nextNode(head, result, binary)
 
