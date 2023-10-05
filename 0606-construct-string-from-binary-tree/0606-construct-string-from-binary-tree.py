@@ -25,16 +25,12 @@ class Solution:
             return temp
 
         if root.left:
-            tempstr = depthNode(root.left)
-            print("left", tempstr)
-            resStr += tempstr
+            resStr += depthNode(root.left)
 
         if root.right:
             if not root.left:
                 resStr += "()"
-            tempstr = depthNode(root.right)
-            print("right", tempstr)
-            resStr += tempstr
+            resStr += depthNode(root.right)
 
         return resStr
             
