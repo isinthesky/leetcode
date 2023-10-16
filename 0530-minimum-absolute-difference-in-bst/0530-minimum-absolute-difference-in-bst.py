@@ -22,7 +22,7 @@ class Solution:
         arr.sort()
 
         for pos in range(len(arr)-1):
-            gap = abs(arr[pos] - arr[pos+1])
+            gap = arr[pos+1] - arr[pos]
 
             if result[0] > gap:
                 result[0] = gap
