@@ -4,7 +4,7 @@ class Solution:
         def execBackspace(string: str):
             arr = []
 
-            for pos, char in enumerate(string):
+            for char in string:
                 if char == '#':
                     if len(arr) > 0:
                         arr.pop()
